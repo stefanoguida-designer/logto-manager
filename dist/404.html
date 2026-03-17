@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Store full path (pathname + search + hash) so index.html can restore it.
+      // We must store the full pathname (including basename) for correct restore.
+      var redirect = window.location.pathname + window.location.search + window.location.hash;
+      sessionStorage.setItem('redirect', redirect);
+      window.location.replace('/flow-wizard-15/');
+    </script>
+  </head>
+  <body></body>
+</html>
