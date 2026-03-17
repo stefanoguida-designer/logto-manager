@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Government institutional design - Irish emerald theme */
+    --background: 210 20% 98%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    /* Irish emerald green as primary */
+    --primary: 153 60% 30%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 15% 93%;
+    --secondary-foreground: 220 25% 15%;
+
+    --muted: 210 15% 95%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 153 50% 95%;
+    --accent-foreground: 153 60% 25%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 88%;
+    --input: 210 15% 88%;
+    --ring: 153 60% 30%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens for government platform */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    /* Role colors */
+    --role-super-admin: 280 60% 50%;
+    --role-admin: 199 89% 48%;
+
+    /* Status colors */
+    --status-active: 142 71% 45%;
+    --status-pending: 38 92% 50%;
+    --status-inactive: 0 0% 60%;
+
+    /* Flow diagram */
+    --flow-line: 153 40% 70%;
+    --flow-node: 0 0% 100%;
+    --flow-node-border: 153 60% 30%;
+    --flow-decision: 38 92% 95%;
+    --flow-decision-border: 38 80% 50%;
+    --flow-action: 153 50% 95%;
+    --flow-action-border: 153 60% 30%;
+    --flow-end: 0 72% 95%;
+    --flow-end-border: 0 72% 51%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 25% 10%;
+    --sidebar-primary: 153 60% 30%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 153 50% 95%;
+    --sidebar-accent-foreground: 153 60% 25%;
+    --sidebar-border: 210 15% 88%;
+    --sidebar-ring: 153 60% 30%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 210 20% 98%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 153 55% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 210 15% 55%;
+
+    --accent: 153 40% 18%;
+    --accent-foreground: 153 55% 70%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 153 55% 45%;
+
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-primary: 153 55% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 153 40% 18%;
+    --sidebar-accent-foreground: 153 55% 70%;
+    --sidebar-border: 220 20% 20%;
+    --sidebar-ring: 153 55% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Public Sans', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Flow diagram custom styles */
+  .flow-node {
+    @apply bg-card border-2 border-primary rounded-lg shadow-sm transition-all duration-200;
+  }
+
+  .flow-node:hover {
+    @apply shadow-md scale-[1.02];
+  }
+
+  .flow-decision {
+    @apply bg-[hsl(var(--flow-decision))] border-2 border-[hsl(var(--flow-decision-border))];
+  }
+
+  .flow-action {
+    @apply bg-[hsl(var(--flow-action))] border-2 border-[hsl(var(--flow-action-border))];
+  }
+
+  .flow-end {
+    @apply bg-[hsl(var(--flow-end))] border-2 border-[hsl(var(--flow-end-border))];
+  }
+
+  .flow-connector {
+    @apply stroke-[hsl(var(--flow-line))] stroke-2;
+  }
+}
+
+@layer utilities {
+  .animate-flow-in {
+    animation: flowIn 0.4s ease-out forwards;
+  }
+
+  @keyframes flowIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+  .stagger-7 { animation-delay: 0.7s; }
+  .stagger-8 { animation-delay: 0.8s; }
+}
