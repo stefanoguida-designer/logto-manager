@@ -17,5 +17,5 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/flow-wizard-15/",
+  base: "/logto-manager/",
 }));

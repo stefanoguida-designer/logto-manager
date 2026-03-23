@@ -28,7 +28,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename="/flow-wizard-15">
+        <BrowserRouter basename="/logto-manager">
           <Routes>
             <Route path="/" element={<RoleSelectionPage />} />
             <Route path="/teams" element={<TeamsPage />} />
